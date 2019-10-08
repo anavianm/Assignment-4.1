@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	text-align: center;
+	background-color: #F6D003;
+}
+
+h1{
+	font-size: 100px;
+	text-align: inherit;
+	color: #F2337B;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	text-shadow: -4px 3px 0 #077DDF, -14px 7px 0 #0a0e27;
+}
+
+h2{
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	color: #F2337B;
+	text-shadow: -3px 1px 0 #0a0e27;
+	text-align:inherit;
+	font-size: 24px;
+}
+h3{
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	color: #F2337B;
+	text-align:inherit;
+	font-size: 20px;
+}
+p{
+	text-align: inherit;
+	color: #077DDF;
+}
+
+input[type=text], select, textarea{
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+button {
+  text-decoration: none!important;
+  display: inline-block;
+  border-radius: 2px;
+  background-color: #F2337B;
+  border: none;
+  color: #173885!imporant;
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer!important;
+  margin: 5px;
+}
+
+button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover span {
+  padding-right: 25px;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}

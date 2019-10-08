@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Quick Pick</title>
+	
+<link href="main.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+	<h1>Quik Pik</h1>
+	
+	
+	<h2 id="lottos"></h2>
+	<p id="lottos1"></p>
+<!--	<p id="lottos2"></p>-->
+	<h2 id="lottos3"></h2>
+	<p id="lottos4"></p>
+	
+	<script language="javascript" type="text/javascript">
+//		var arry = new Array();
+//		var tracker, min, max;
+//	
+////	document.write(Math.round(Math.random()*47+1));
+//	
+//		for(i=0; i < 5; i++){
+//			arry.push(Math.round(Math.random()*47 + 1));
+//			tracker = i;
+//	//		document.write(arry[i]);
+//		}
+//
+//	//	document.write("gets here");
+//		arry[tracker+1] = Math.round(Math.random()*17 + 1);
+//
+//
+//		document.getElementById("lottos").innerHTML = ("Lotto Numbers<br>");
+////		for(j = 0; j < 6; j++){
+////			document.write(arry[j] + " ");
+////		}
+//		
+//		document.getElementById("lottos1").innerHTML = (arry);
+//		
+////		document.getElementById("lottos2").innerHTML = ("<br>");	
+//
+//		document.getElementById("lottos3").innerHTML = ("Lotto Sorted<br>");
+//		const numberSorter = (a,b) => a - b;
+//		
+//		var sortedNums = arry.sort(numberSorter);
+//		
+//		document.getElementById("lottos4").innerHTML = (sortedNums);
+
+	</script>
+	
+	<form id="form">
+		<br>
+		<h3>Input Numbers</h3>
+		<input type="text" placeholder="Enter 5 Nums W/ Spaces" id="lottoNumsAns">
+		<h3>Lucky Ball</h3>
+		<input type="text" placeholder="ex 7 (No Space)" id="luckyBallAns">
+		<br>
+		<br>
+		<button type="button" onClick="processForm()">Submit</button>
+		
+		<h1 id="input1"></h1>
+		<h1 id="input2"></h1>
+		<h1 id="input3"></h1>
+		<h1 id="input4"></h1>
+		<h1 id="input5"></h1>
+		<h1 id="input6"></h1>
+		<h1 id="input7"></h1>
+		<h1 id="input8"></h1>
+		<h1 id="input9"></h1>
+		<h1 id="input10"></h1>
+		
+		
+		
+	</form>
+	
+	<script language="javascript" type="text/javascript">
+		
+		var arry = new Array();
+		var holder = new Array();
+		var tracker, min, max;
+	
+//	document.write(Math.round(Math.random()*47+1));
+	
+		for(i=0; i < 5; i++){
+			arry.push(Math.round(Math.random()*47 + 1));
+			tracker = i;
+	//		document.write(arry[i]);
+		}
+
+	//	document.write("gets here");
+		arry[tracker+1] = Math.round(Math.random()*17 + 1);
+
+
+		document.getElementById("lottos").innerHTML = ("Lotto Numbers<br>");
+//		for(j = 0; j < 6; j++){
+//			document.write(arry[j] + " ");
+//		}
+		
+		document.getElementById("lottos1").innerHTML = (arry);
+		
+		holder = [...arry];
+		
+		
+//		document.getElementById("lottos2").innerHTML = ("<br>");	
+
+		document.getElementById("lottos3").innerHTML = ("Lotto Sorted<br>");
+		const numberSorter = (a,b) => a - b;
+		
+		var sortedNums = arry.sort(numberSorter);
+		
+		document.getElementById("lottos4").innerHTML = (sortedNums);
+
+		
+		function processForm() {
+			var ans = document.getElementById("form");
+			var counter = 0;
+			var text = "";
+			var lottoNums = "";
+  			var i;
+			var userAns = new Array();
+			var temp = new Array();
+  			for (i = 0; i < ans.length ;i++) {
+//				temp.push(ans.elements[i].value);
+    			text += ans.elements[i].value;
+			}
+			
+			
+			userAns = text.split(" ");
+			
+//			var lottoNums = document.getElementById("lottos1").textContent;
+			
+//			temp = lottoNums.split(" ");
+			
+			var isLucky;
+			
+			for(j = 0; j < userAns.length-1; j++){
+				if(userAns[j] == holder[j]){
+					counter++;
+				}
+			}
+			
+			
+			var length = holder.length;
+			
+			if(userAns[length-1] == holder[length-1]){
+				isLucky = true;
+			}else{
+				isLucky = false;
+			}
+			
+			
+			if((isLucky == true) && counter == 5){
+				document.getElementById("input1").innerHTML = ("$7,000 a WEEK for LIFE!");
+			}
+			
+			if((isLucky == false) && counter == 5){
+				document.getElementById("input2").innerHTML = ("$25,000 a YEAR for LIFE!");
+			}
+			
+			if((isLucky == true) && counter == 4){
+				document.getElementById("input3").innerHTML = ("YOU WIN: $5,000");
+			}
+			
+			if((isLucky == false) && counter == 4){
+				document.getElementById("input4").innerHTML = ("YOU WIN: $200");
+			}
+			
+			if((isLucky == true) && counter == 3){
+				document.getElementById("input5").innerHTML = ("YOU WIN: $150");
+			}
+			
+			if((isLucky == false) && counter == 3){
+				document.getElementById("input6").innerHTML = ("YOU WIN: $20");
+			}
+			
+			if((isLucky == true) && counter == 2){
+				document.getElementById("input7").innerHTML = ("YOU WIN: $25");
+			}
+			
+			if((isLucky == false) && counter == 2){
+				document.getElementById("input8").innerHTML = ("YOU WIN: $3");
+			}
+			
+			if((isLucky == true) && counter == 1){
+				document.getElementById("input9").innerHTML = ("YOU WIN: $6");
+			}
+			
+			if((isLucky == true) && counter == 0){
+				document.getElementById("input10").innerHTML = ("YOU WIN: $4");
+			}
+			
+			if((isLucky == false) && counter == 0){
+				document.getElementById("input10").innerHTML = ("Sorry, try again tomorrow");
+			}
+			
+			
+			
+			
+				
+//  			document.getElementById("input3").innerHTML = counter;
+			
+//			document.getElementById("input4").innerHTML = isLucky;
+//			document.getElementById("input5").innerHTML = userAns[5];
+		
+		}
+		
+	</script>
+	
+
+	
+</body>
+	
+</html>
